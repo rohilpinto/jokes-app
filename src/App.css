@@ -56,12 +56,12 @@
 }
 
 button.btn {
-  height: 67px;
+  height: 57px;
   width: 203px;
   border: none;
-  background: #6f97ff;
+  background: var(--Btn);
 
-  border-radius: 72px;
+  border-radius: 8px;
 
   color: #ffffff;
 
@@ -71,4 +71,16 @@ button.btn {
   line-height: 32px;
 
   text-align: center;
+  transition: 0.1s;
+}
+
+button.btn:hover {
+  background-color: #618dfd;
+}
+
+button.btn:active {
+  transform: scale(0.9);
+  background-color: #7d61fd;
+  font-size: calc(22px - 1px);
+  border-radius: 10px;
 }
