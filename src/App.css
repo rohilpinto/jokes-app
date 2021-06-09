@@ -113,7 +113,7 @@ button.btn:active {
   }
 }
 
-@media screen and (min-width: 100px) and (max-width: 400px) {
+@media screen and (min-width: 100px) and (max-width: 500px) {
   .jokes-container {
     top: 0;
   }
