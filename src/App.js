@@ -12,7 +12,7 @@ const Data = () => {
     const fetchUrl = await fetch(url);
     const fetchedJson = await fetchUrl.json();
 
-    const { id, type, setup, punchline } = fetchedJson;
+    const { setup, punchline } = fetchedJson;
 
     setJokeSetup(setup);
     setPunchline(punchline);
