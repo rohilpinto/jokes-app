@@ -48,7 +48,6 @@
 }
 .jokes-content-container {
   margin-bottom: 20px;
-   
 }
 
 .jokes,
@@ -108,9 +107,14 @@ button.btn:active {
   display: none;
 }
 
-
 @media screen and (min-width: 100px) and (max-width: 800px) {
   .jokes-data-container {
     height: auto;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 400px) {
+  .jokes-container {
+    top: 0;
   }
 }
