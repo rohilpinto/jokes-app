@@ -1,21 +1,41 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+// import textdata from "./data.json";
 
 const Data = () => {
   const url = "https://official-joke-api.appspot.com/jokes/random";
+
   const [jokeSetup, setJokeSetup] = useState();
   const [punchline, setPunchline] = useState();
   const [show, setShow] = useState(false);
   const [next, setNext] = useState(false);
 
+  const [error, setError] = useState(false);
+
   const fetchJoke = async () => {
-    const fetchUrl = await fetch(url);
-    const fetchedJson = await fetchUrl.json();
+    // let fetchUrl = await fetch(url);
 
-    const { setup, punchline } = fetchedJson;
+    // let fetchedJson = await fetchUrl.json();
+    // console.log(fetchedJson);
+    // const { setup, punchline } = fetchedJson;
 
-    setJokeSetup(setup);
-    setPunchline(punchline);
+    // setJokeSetup(setup);
+    // setPunchline(punchline);
+
+    try {
+      let fetchUrl = await fetch(url);
+
+      let fetchedJson = await fetchUrl.json();
+
+      const { setup, punchline } = fetchedJson;
+
+      setJokeSetup(setup);
+      setPunchline(punchline);
+    } catch (error) {
+      setError(true);
+      // console.log("err", error.type, error.message);
+      console.log(error.response && error.response);
+    }
   };
 
   useEffect(() => {
@@ -26,7 +46,7 @@ const Data = () => {
     fetchJoke();
     setTimeout(() => {
       setShow(false);
-    }, 100);
+    }, 50);
   }, [next]);
 
   return (
@@ -35,6 +55,7 @@ const Data = () => {
         <div className="jokes-data-container">
           <div className="jokes-content-container">
             <h4 className="jokes">{jokeSetup}</h4>
+            {error && <h4 className="jokes">404 not found</h4>}
             <p className="punchline ">{show === true ? punchline : null}</p>
           </div>
           <div className="btn-container">
