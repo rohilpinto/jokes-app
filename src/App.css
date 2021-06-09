@@ -47,7 +47,8 @@
   justify-content: center;
 }
 
-.jokes {
+.jokes,
+.punchline {
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
@@ -71,7 +72,7 @@ button.btn {
   background: var(--Btn);
   padding: 10px 30px;
   border-radius: 6px;
-
+  margin: 5px;
   color: #ffffff;
 
   font-size: 22px;
@@ -92,4 +93,8 @@ button.btn:active {
   background-color: #7d61fd;
   font-size: calc(22px - 1px);
   border-radius: 10px;
+}
+
+.disabled {
+  display: none;
 }
