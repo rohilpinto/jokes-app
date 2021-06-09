@@ -2,11 +2,11 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 
 const Data = () => {
+  const url = "https://official-joke-api.appspot.com/jokes/random";
   const [jokeSetup, setJokeSetup] = useState();
   const [punchline, setPunchline] = useState();
   const [show, setShow] = useState(false);
   const [next, setNext] = useState(false);
-  const url = "https://official-joke-api.appspot.com/jokes/random";
 
   const fetchJoke = async () => {
     const fetchUrl = await fetch(url);
@@ -24,6 +24,9 @@ const Data = () => {
 
   useEffect(() => {
     fetchJoke();
+    setTimeout(() => {
+      setShow(false);
+    }, 100);
   }, [next]);
 
   return (
@@ -38,7 +41,7 @@ const Data = () => {
             {/* <button className="btn" onClick={() => fetchJoke()}>
               Setup
             </button> */}
-            <button className="btn" onClick={() => setShow(!show)}>
+            <button className="btn" onClick={() => setShow(true)}>
               Punchline
             </button>
             <button className="btn" onClick={() => setNext(!next)}>
